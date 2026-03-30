@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+    body {
+      width: 420px;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      color: white;
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 20px 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #6366f1, #a5b4fc);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .color-card {
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .color-card:hover {
+      transform: scale(1.08);
+    }
+
+    .swatch {
+      width: 78px;
+      height: 78px;
+      border-radius: 20px;
+      margin: 0 auto 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3),
+                  inset 0 4px 10px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .swatch:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .color-info {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .hex {
+      font-weight: 600;
+      font-family: monospace;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .actions button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 ColorPalette</h1>
+
+  <button id="extractBtn" class="btn btn-primary">
+    📸 Extract Dominant Colors
+  </button>
+
+  <button id="pickBtn" class="btn btn-secondary">
+    🎯 Pick Color with Eyedropper
+  </button>
+
+  <div id="palette" class="palette"></div>
+
+  <div class="actions">
+    <button id="copyCss" class="btn btn-secondary">Copy as CSS Variables</button>
+    <button id="exportJson" class="btn btn-secondary">Export JSON</button>
+  </div>
+
+  <div class="footer">
+    Click any swatch to copy hex
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
